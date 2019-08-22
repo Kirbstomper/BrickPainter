@@ -1,0 +1,10 @@
+<h2>Parts that share this colour that you can buy</h2>
+
+<input [(ngModel)]="partNumber" placeholder="part #">
+<button (click)="onBrickSelect(partNumber)">Search</button>
+<ul class="parts">
+  <li *ngFor = "let part of parts ">
+      <h1>Color {{part.color_name}}</h1>
+      <img width="50" height="50" alt="color" src="{{part.part_img_url}}">
+  </li>
+</ul>
