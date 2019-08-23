@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
+Using the Rebrickable API (https://rebrickable.com/api/v3/docs/) you can find if all of a color in a given set are availible in other colors. For example with set # 10252-1 the volkswagen beetle, I want the car to be green rather than blue. So using BrickPainter you can use Dark Azure as colorA and Green as colorB to find what can be replaced to obtain the desired end color.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
