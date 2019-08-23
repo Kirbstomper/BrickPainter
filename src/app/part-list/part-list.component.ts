@@ -1,8 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import {PartComponent} from "../part/part.component";
-import {BrickService, RespModel}  from "./BrickService";
-import { HttpClient, HttpHandler } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import {BrickService}  from "./BrickService";
 @Component({
   selector: 'app-part-list',
   templateUrl: './part-list.component.html',
@@ -80,20 +77,31 @@ export class PartListComponent implements OnInit {
     
 
   constructor(private brickService:BrickService ) {}
-  
-  onBrickSelect(part_num:string){
-    //Make API call to get parts list
-   this.brickService.getColorsForPart(part_num).subscribe((res)=>{
-     console.log(res.count);
-     var service_parts = [];
-     res.results.forEach(p=> {
-      if(p.num_sets> 0){
-      console.log("Added!");
-        service_parts.push(p);
-      }
-    });
-    this.parts = service_parts;
+  //TODO: Refactor this, its a bit messy @_@
+  onBrickSelect(set_num:string,color_a:string,color_b:string){
+    //Make API call to get parts and all parts of that colour
+   this.parts =[]; //Empty parts list
+   var part_query = "";
+   this.brickService.getPartsListForSet(set_num).subscribe((res)=>{
+      console.log(res.count);
+      res.results.forEach(p =>{
+        if(p.color.name.toLowerCase() ==  color_a.toLowerCase() ){
+          //Make call to get colors for this part
+          this.brickService.getColorsForPart(p.part.part_num).subscribe((res)=>{
+            res.results.forEach(part =>{
+              if(part.color_name.toLowerCase() == color_b.toLowerCase() && (part.num_set_parts>0)){
+                this.parts.push(part);
+              }
+            })
+          })
+         
+        }
+        
+      });
+     
    });
+   
+   
    
   }
   ngOnInit() {
