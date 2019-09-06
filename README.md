@@ -5,10 +5,10 @@ Using the Rebrickable API (https://rebrickable.com/api/v3/docs/) you can find if
 
 Tech used:
 
-MongoDB
-Express.js
-Angular
-Node.js
+- MongoDB
+- Express.js
+- Angular
+- Node.js
 
 
 ## Development server
