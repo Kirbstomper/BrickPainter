@@ -12,7 +12,11 @@ import {BrickService}  from "./BrickService";
  */
 
 export class PartListComponent implements OnInit {
-  
+    
+  colorA;
+  colorB;
+  partNumber;
+
     //Mock data from API call
     parts = [];
     data = [

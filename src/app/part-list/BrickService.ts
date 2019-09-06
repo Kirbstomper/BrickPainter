@@ -10,10 +10,11 @@ import { Injectable } from '@angular/core';
 const httpOptions = {
   headers: new HttpHeaders({
     "Accept": "application/json",
-    'Content-Type':  'application/json',
-    'Authorization': '7782c76c8e367386bf510998fad6fe50'
+    'Content-Type':  'application/json'
   })
 };
+
+const url = "http://localhost:8080"; // Change for whatever URL you plan on hosting with
 
 export class PartRespModel{
   count:number;
@@ -56,21 +57,14 @@ export class BrickService{
 
     public getColorsForPart(part_num:string):Observable<PartRespModel>{
        
-      return this.http.get<PartRespModel>("https://rebrickable.com/api/v3/lego/parts/"+part_num+"/colors/?key=7782c76c8e367386bf510998fad6fe50",{
+      return this.http.post<PartRespModel>(url+"/api/getColorsForPart",{"part":part_num},{
          headers:httpOptions.headers
        });
     }
 
 
     public getPartsListForSet(set_num:string):Observable<SetListRespModel>{
-      return this.http.get<SetListRespModel>("https://rebrickable.com/api/v3/lego/sets/"+set_num+"/parts/?page_size=10000&key=7782c76c8e367386bf510998fad6fe50",{
-         headers:httpOptions.headers
-       });
-    }
-
-    public getColorsForPartList(parts_list:string):Observable<PartRespModel>{
-       
-      return this.http.get<PartRespModel>("https://rebrickable.com/api/v3/lego/parts/colors/?part_nums="+parts_list+"&key=7782c76c8e367386bf510998fad6fe50",{
+      return this.http.post<SetListRespModel>(url+"/api/getPartsListForSet",{"set":set_num},{
          headers:httpOptions.headers
        });
     }
