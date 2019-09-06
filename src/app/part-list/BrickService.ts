@@ -14,6 +14,8 @@ const httpOptions = {
   })
 };
 
+const url = "http://localhost:8080"; // Change for whatever URL you plan on hosting with
+
 export class PartRespModel{
   count:number;
   next:any;
@@ -55,14 +57,14 @@ export class BrickService{
 
     public getColorsForPart(part_num:string):Observable<PartRespModel>{
        
-      return this.http.post<PartRespModel>("http://localhost:8080/api/getColorsForPart",{"part":part_num},{
+      return this.http.post<PartRespModel>(url+"/api/getColorsForPart",{"part":part_num},{
          headers:httpOptions.headers
        });
     }
 
 
     public getPartsListForSet(set_num:string):Observable<SetListRespModel>{
-      return this.http.post<SetListRespModel>("http://localhost:8080/api/getPartsListForSet",{"set":set_num},{
+      return this.http.post<SetListRespModel>(url+"/api/getPartsListForSet",{"set":set_num},{
          headers:httpOptions.headers
        });
     }

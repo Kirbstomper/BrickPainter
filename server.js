@@ -4,6 +4,10 @@ const mongodb = require("mongodb");
 const request = require('request');
 
 const app = express()
+
+const db_url = "localhost:27017/sample";            // Set to your MongoDB url
+const API_KEY = "7782c76c8e367386bf510998fad6fe50"; //Set to your API key for Rebrickable 
+
 app.use(bodyParser.json());
 
 
@@ -15,7 +19,7 @@ app.use(express.static(angularDir));
 var db;
 
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/sample", function (err, client) {
+mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://"+db_url, function (err, client) {
   if (err) {
     console.log(err);
     process.exit(1);
@@ -43,7 +47,7 @@ app.post("/api/getColorsForPart",function(req,res){
             
             request.get("https://rebrickable.com/api/v3/lego/parts/"+
                                     req.body.part+
-                                    "/colors/?key=7782c76c8e367386bf510998fad6fe50",function(error, response, body){
+                                    "/colors/?key="+API_KEY,function(error, response, body){
                                         db.collection("parts").insertOne({"part":req.body.part,"response":body})
                                         res.send(body)
                                     })
@@ -62,7 +66,7 @@ app.post("/api/getPartsListForSet",function(req,res){
             
             request.get("https://rebrickable.com/api/v3/lego/sets/"
                         +req.body.set
-                        +"/parts/?page_size=10000&key=7782c76c8e367386bf510998fad6fe50",function(error, response, body){
+                        +"/parts/?page_size=10000&key="+API_KEY,function(error, response, body){
                                         db.collection("sets").insertOne({"set":req.body.set,"response":body})
                                         res.send(body)
                                     })
