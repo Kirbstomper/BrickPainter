@@ -21,6 +21,7 @@
     "@angular/router": "~7.2.0",
     "angular-cli-ghpages": "^0.5.3",
     "body-parser": "^1.19.0",
+    "bulma": "^0.7.5",
     "core-js": "^2.5.4",
     "express": "^4.17.1",
     "mongodb": "^3.3.2",

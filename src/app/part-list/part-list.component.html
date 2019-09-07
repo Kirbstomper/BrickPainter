@@ -1,14 +1,17 @@
-<input [(ngModel)]="partNumber" placeholder="set #" >
-<input [(ngModel)]="colorA" placeholder="Color A" >
-<input [(ngModel)]="colorB" placeholder="color B" >
-<button (click)="onBrickSelect(partNumber,colorA,colorB)">Search</button>
 
 
-<h2>Parts that share this color that you can buy</h2>
-<ul class="parts">
-  <li *ngFor = "let part of parts ">
+  <input class="input is-primary " type="text"  [(ngModel)]="partNumber" placeholder="Set #" >
+  <input class="input is-info " type="text" [(ngModel)]="colorA" placeholder="Color A" >
+  <input class="input is-info " [(ngModel)]="colorB" placeholder="Color B" >
+  <button  class="button is-primary is-medium is-fullwidth" (click)="onBrickSelect(partNumber,colorA,colorB)">Search</button>
+<ul>
+    
+  <li class="container" *ngFor = "let part of parts ">
+    
+    <div class="box">
       <h1>Color {{part.color_name}}</h1>
       <h2>Element# {{part.elements[0]}}</h2>
       <img width="50" height="50" alt="color" src="{{part.part_img_url}}">
+    </div>
   </li>
 </ul>

@@ -3,11 +3,14 @@ const bodyParser = require("body-parser");
 const mongodb = require("mongodb");
 const request = require('request');
 
-const app = express()
+
 
 const db_url = "localhost:27017/sample";            // Set to your MongoDB url
 const API_KEY = "7782c76c8e367386bf510998fad6fe50"; //Set to your API key for Rebrickable 
 
+
+
+const app = express();
 app.use(bodyParser.json());
 
 
