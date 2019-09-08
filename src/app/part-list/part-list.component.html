@@ -5,9 +5,8 @@
   <input class="input is-info " [(ngModel)]="colorB" placeholder="Color B" >
   <button  class="button is-primary is-medium is-fullwidth" (click)="onBrickSelect(partNumber,colorA,colorB)">Search</button>
 <ul>
-    
-  <li class="container" *ngFor = "let part of parts ">
-    
+
+  <li class="section" *ngFor = "let part of parts ">
     <div class="box">
       <h1>Color {{part.color_name}}</h1>
       <h2>Element# {{part.elements[0]}}</h2>

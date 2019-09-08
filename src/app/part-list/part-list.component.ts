@@ -109,7 +109,7 @@ export class PartListComponent implements OnInit {
    
   }
   ngOnInit() {
-    this.parts = [];
+    this.parts = this.data;
   }
 
 }
