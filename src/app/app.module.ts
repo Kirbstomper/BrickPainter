@@ -18,9 +18,9 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
     AppRoutingModule,
     HttpClientModule,
     FormsModule
-    
+
   ],
   providers: [BrickService],
-  bootstrap: [AppComponent,PartListComponent]
+  bootstrap: [AppComponent, PartListComponent]
 })
 export class AppModule { }
