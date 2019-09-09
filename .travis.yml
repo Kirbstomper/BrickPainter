@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "10"
+- '10'
 dist: trusty
 sudo: required
 addons:
@@ -9,7 +9,13 @@ branches:
   only:
   - master
 before_script:
-  - npm install -g @angular/cli
+- npm install -g @angular/cli
 script:
 - npm run run_tests
 - npm run build_prod
+deploy:
+  provider: heroku
+  api_key:
+    secure: R4WPTD8yYDiAd87LWdMxH/7JIBH311rTWC9vAQvXL7VOCKk0IrYg6Uw/80KDgZOov60MIoozgd9cETBu3+CA+q3aXoje+JCjYTi0GxQEXNLklmhylwmpoqQc8YRJh6354IVoEMJ6ax+es/zcU2/jxOkxmw8IUe9LhTKDhb7aZcwVx9+3KpQktisbdCgJE8rfmM6cdRM+MrLP8eLJRH1l3o9auafaE3oJadQe7swILlAJ77+SrA5JZdbaHx0PxzI8ZJetiBVafwuTsfD6aBfL2YwpAVNpE0G/K8Rh5+cjb0WxhOfIo375uuSDwIrHfqIcbDClgRWDC/HtDektBbrHnePZLQnfMRGZ/Zk+Av21DAxTn1jaH5A7dOLUXxdoFlko/vRkcCpyuDiKVQGyijdL9D2eYFQGxz25GSROZz7bnTbwhpA7VUoXv2ew2P3T3ZyzL6TimH5Yk76W2EdjofW6XXr1RK0n7xWqfC5bzhFeBI1iiWweC1MaU1TTEXR+DIC0utTqwThyCe01lX9fexxNZo0RHK8zARbDX2/mcH8l4izPCeqQA3HuC3e7DMOUY217BQUOPa6AYF0CI6MsotLKRfGtY8hG3HGbQ42/IY8VnSYFVAUtAFfFZzgXdk4SUyOycve6Daq13/I7lDgO+i8ZMuMTSRNs6aGcJhAEznoC+GE=
+  skip_cleanup: true
+  app: brick-painter
