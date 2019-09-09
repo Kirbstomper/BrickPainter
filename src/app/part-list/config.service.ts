@@ -5,6 +5,3 @@ import { HttpClient } from '@angular/common/http';
 export class ConfigService {
   constructor(private http: HttpClient) { }
 }
-
-export interface Config {
-  }

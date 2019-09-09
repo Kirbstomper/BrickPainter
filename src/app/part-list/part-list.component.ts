@@ -1,5 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import {BrickService}  from './BrickService';
+import {BrickService} from './BrickService';
 @Component({
   selector: 'app-part-list',
   templateUrl: './part-list.component.html',
@@ -89,11 +89,11 @@ export class PartListComponent implements OnInit {
    this.brickService.getPartsListForSet(set_num).subscribe((res) => {
       console.log(res.count);
       res.results.forEach(p => {
-        if (p.color.name.toLowerCase() ==  color_a.toLowerCase() ) {
+        if (p.color.name.toLowerCase() ===  color_a.toLowerCase() ) {
           // Make call to get colors for this part
-          this.brickService.getColorsForPart(p.part.part_num).subscribe((res) => {
-            res.results.forEach(part => {
-              if (part.color_name.toLowerCase() == color_b.toLowerCase() && (part.num_set_parts > 0)) {
+          this.brickService.getColorsForPart(p.part.part_num).subscribe((color_res) => {
+            color_res.results.forEach(part => {
+              if (part.color_name.toLowerCase() === color_b.toLowerCase() && (part.num_set_parts > 0)) {
                 this.parts.push(part);
               }
             });
