@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PartListComponent } from './part-list.component';
+import { FormsModule } from '@angular/forms';
+import {BrickService} from './BrickService';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('PartListComponent', () => {
   let component: PartListComponent;
@@ -8,7 +11,9 @@ describe('PartListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PartListComponent ]
+      imports: [FormsModule, HttpClientModule],
+      declarations: [ PartListComponent ],
+      providers: [BrickService]
     })
     .compileComponents();
   }));

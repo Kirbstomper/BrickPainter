@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, NgModule } from '@angular/core';
 import {BrickService} from './BrickService';
 @Component({
   selector: 'app-part-list',
