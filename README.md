@@ -1,4 +1,6 @@
 # BrickPaint
+http://www.brickpaint.me
+
 [![Build Status](https://travis-ci.org/Kirbstomper/BrickPainter.svg?branch=master)](https://travis-ci.org/Kirbstomper/BrickPainter)
 
 Using the Rebrickable API (https://rebrickable.com/api/v3/docs/) you can find if all of a color in a given set are availible in other colors. For example with set # 10252-1 the volkswagen beetle, I want the car to be green rather than blue. So using BrickPainter you can use Dark Azure as colorA and Green as colorB to find what can be replaced to obtain the desired end color.
