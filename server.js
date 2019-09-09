@@ -5,8 +5,8 @@ const request = require('request');
 
 
 
-const db_url = "localhost:27017/sample";            // Set to your MongoDB url
-const API_KEY = "7782c76c8e367386bf510998fad6fe50"; //Set to your API key for Rebrickable 
+const db_url = process.env.MONGODB_CONNECTION ||"mongodb://localhost:27017/sample";            // Set to your MongoDB url
+const API_KEY = process.env.REBRICKABLE_API || "7782c76c8e367386bf510998fad6fe50"; //Set to your API key for Rebrickable 
 
 
 
@@ -22,7 +22,7 @@ app.use(express.static(angularDir));
 var db;
 
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://"+db_url, function (err, client) {
+mongodb.MongoClient.connect(db_url, function (err, client) {
   if (err) {
     console.log(err);
     process.exit(1);
@@ -32,7 +32,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://"+db_url, func
   db = client.db();
   console.log("Database connection ready");
 
-app.listen(8080,()=> {
+app.listen(process.env.PORT || 8080,()=> {
     console.log('server started!');
 });
 

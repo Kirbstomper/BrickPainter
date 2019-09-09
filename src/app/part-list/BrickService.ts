@@ -4,6 +4,7 @@ import { ConfigService } from './config.service';
 import {HttpClient} from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -14,7 +15,7 @@ const httpOptions = {
   })
 };
 
-const url = 'http://localhost:8080'; // Change for whatever URL you plan on hosting with
+const url = environment.serviceUrl; // Change for whatever URL you plan on hosting with
 
 export class PartRespModel {
   count: number;
