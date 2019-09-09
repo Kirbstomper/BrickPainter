@@ -11,7 +11,5 @@ branches:
 before_script:
   - npm install -g @angular/cli
 script:
-- ng lint
-- ng test
-- ng e2e
-- ng build --prod --base-href https://kirbstomper.github.io/BrickPainter/
+- npm run run_tests
+- npm run build_prod
