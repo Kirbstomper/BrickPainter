@@ -103,15 +103,11 @@ export class PartListComponent implements OnInit {
                 this.parts.push(part);
               }
             });
-            this.isLoading = false;
           });
         }
       });
-
     });
-
-
-
+    this.isLoading = false;
   }
   ngOnInit() {
     this.parts = [];
