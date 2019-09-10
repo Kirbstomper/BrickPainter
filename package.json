@@ -17,7 +17,7 @@
     "test_headless": "ng test --watch false --browsers ChromeHeadless",
     "e2e_headless": "ng e2e --protractor-config=e2e/protractor.conf-ci.js",
     "run_tests": "ng lint && npm run test_headless && npm run e2e_headless",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "npm run build"
   },
   "private": true,
   "dependencies": {
