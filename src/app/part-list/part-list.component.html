@@ -1,9 +1,15 @@
 
 
   <input class="input is-primary " type="text"  [(ngModel)]="partNumber" placeholder="Set #" >
-
+  <select name="color_a" [(ngModel)]="colorA">
+    <option *ngFor="let color of color_options">{{color.name}}</option>
+</select>  
+<select name="color_b" [(ngModel)]="colorB">
+    <option *ngFor="let color of color_options">{{color.name}}</option>
+</select>  
   <button  class="button is-primary is-medium is-fullwidth" (click)="onBrickSelect(partNumber,colorA,colorB)">Search</button>
 <ul>
+  
 
   <li class="section" *ngFor = "let part of parts ">
     <div class="box">

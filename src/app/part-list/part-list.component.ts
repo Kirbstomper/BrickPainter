@@ -21,7 +21,7 @@ export class PartListComponent implements OnInit {
 
     // Mock data from API call
     parts = [];
-    color_options= new COLOR_LIST().colors;
+    color_options:any[] = new COLOR_LIST().colors;
     data = [
       {
         color_id: -1,
