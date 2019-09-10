@@ -4,12 +4,6 @@ export class ColorList {
 
     colors = [
         {
-          id: -1,
-          name: '[Unknown]',
-          rgb: '0033B2',
-          is_trans: 'f'
-        },
-        {
           id: 0,
           name: 'Black',
           rgb: '05131D',
@@ -1069,12 +1063,6 @@ export class ColorList {
           id: 1051,
           name: 'Pastel Blue',
           rgb: '5AC4DA',
-          is_trans: 'f'
-        },
-        {
-          id: 9999,
-          name: '[No Color/Any Color]',
-          rgb: '05131D',
           is_trans: 'f'
         }
       ];
