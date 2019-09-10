@@ -10,6 +10,7 @@
     "build_prod": "npm run css-build && ng build --prod --base-href https://kirbstomper.github.io/BrickPainter/",
     "test": "ng test",
     "lint": "ng lint",
+    "fix-lint": "ng lint --fix=true",
     "e2e": "ng e2e",
     "css-build": "node-sass --omit-source-map-url sass/mystyles.scss css/mystyles.css",
     "css-watch": "npm run css-build -- --watch",

@@ -13,6 +13,16 @@ describe('workspace-project App', () => {
     expect(page.getTitleText()).toEqual('BrickPaint!');
   });
 
+  it('should display a Search button', () => {
+     page.navigateTo();
+     expect(page.getSearchButton()).toEqual('Search');
+  });
+
+  it('should display 2 color menus', () => {
+      page.navigateTo();
+      expect(page.getColorSelectA()).toContain('Blue'); // Contains colors
+      expect(page.getColorSelectB()).toContain('Red');
+  });
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
