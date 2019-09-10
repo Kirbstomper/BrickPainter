@@ -1,5 +1,7 @@
 import { Component, OnInit, Injectable, NgModule } from '@angular/core';
 import {BrickService} from './BrickService';
+import {ColorList} from './color-list';
+
 @Component({
   selector: 'app-part-list',
   templateUrl: './part-list.component.html',
@@ -19,6 +21,7 @@ export class PartListComponent implements OnInit {
 
     // Mock data from API call
     parts = [];
+    color_options: any[] = new ColorList().colors;
     data = [
       {
         color_id: -1,

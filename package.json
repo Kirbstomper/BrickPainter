@@ -7,9 +7,10 @@
     "start": "node server.js",
     "build": "npm run css-build && ng build --prod",
     "build_dev": "npm run css-build && ng build",
-    "build_prod": "npm run css-build && ng build --prod --base-href https://kirbstomper.github.io/BrickPainter/",
+    "build_CI": "ng build --prod --base-href https://kirbstomper.github.io/BrickPainter/",
     "test": "ng test",
     "lint": "ng lint",
+    "fix-lint": "ng lint --fix=true",
     "e2e": "ng e2e",
     "css-build": "node-sass --omit-source-map-url sass/mystyles.scss css/mystyles.css",
     "css-watch": "npm run css-build -- --watch",
@@ -17,7 +18,7 @@
     "test_headless": "ng test --watch false --browsers ChromeHeadless",
     "e2e_headless": "ng e2e --protractor-config=e2e/protractor.conf-ci.js",
     "run_tests": "ng lint && npm run test_headless && npm run e2e_headless",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "npm run build"
   },
   "private": true,
   "dependencies": {
