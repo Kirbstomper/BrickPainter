@@ -1,18 +1,20 @@
 
 
   <input class="input is-primary" type="text"  [(ngModel)]="partNumber" placeholder="Set #" >
-  <select class="select is medium color-is-secondary is-fullwidth" name="color_a" [(ngModel)]="colorA">
+  <select class="select is medium color-is-secondary is-fullwidth"  name="color_a" [(ngModel)]="colorA">
+      <option value="" disabled selected>Select the color you want to replace</option>
     <option *ngFor="let color of color_options">{{color.name}}</option>
   </select>  
-  <select class="select is medium color-is-secondary is-fullwidth" name="color_b" [(ngModel)]="colorB">
+  <select class="select is medium color-is-secondary is-fullwidth"  name="color_b" [(ngModel)]="colorB">
+      <option value="" disabled selected>Select the color you want</option>
     <option *ngFor="let color of color_options">{{color.name}}</option>
   </select>  
-  <button  class="button is-primary is-medium is-fullwidth" (click)="onBrickSelect(partNumber,colorA,colorB)">Search</button>
+  <button class="button is-primary is-medium is-fullwidth" [ngClass]="{'is-loading': isLoading, '': !isLoading}"(click)="onBrickSelect(partNumber,colorA,colorB)">Search</button>
 <ul>
   <li class="section" *ngFor = "let part of parts ">
     <div class="box">
-      <h1>Color {{part.color_name}}</h1>
-      <h2>Element# {{part.elements[0]}}</h2>
+      <h1>Color: {{part.color_name}}</h1>
+      <h2>Element#: {{part.elements[0]}}</h2>
       <img width="50" height="50" alt="color" src="{{part.part_img_url}}">
     </div>
   </li>
